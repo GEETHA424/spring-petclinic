@@ -24,25 +24,25 @@ pipeline {
     }
 
     stage('package/') {
+      steps {
+        sh './mvnw package -DskipTests=true'
+      }
+    }
+
+    stage('Deploy/') {
       parallel {
-        stage('package/') {
+        stage('Deploy/') {
           steps {
-            sh './mvnw package -DskipTests=true'
+            sh './mvnw spring-boot:run </dev/null &>/dev/null &'
           }
         }
 
-        stage('Integration and performance Tests /') {
+        stage('integration and  performance steps/ ') {
           steps {
             sh './mvnw verify'
           }
         }
 
-      }
-    }
-
-    stage('Deploy/') {
-      steps {
-        sh './mvnw spring-boot:run </dev/null &>/dev/null &'
       }
     }
 
