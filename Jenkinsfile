@@ -24,8 +24,19 @@ pipeline {
     }
 
     stage('package/') {
-      steps {
-        sh './mvnw package -DskipTests=true'
+      parallel {
+        stage('package/') {
+          steps {
+            sh './mvnw package -DskipTests=true'
+          }
+        }
+
+        stage('Integration and performance Tests /') {
+          steps {
+            sh './mvnw verify'
+          }
+        }
+
       }
     }
 
