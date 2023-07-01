@@ -7,7 +7,7 @@ pipeline {
       }
     }
 
-    stage('Static Analysis/') {
+    stage('Static Analysis/sh') {
       steps {
         sh '''./mvnw sonar:sonar \\
   -Dsonar.projectKey=simple-java-maven-app \\
