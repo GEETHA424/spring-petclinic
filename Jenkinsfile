@@ -9,18 +9,70 @@ pipeline {
 
     stage('Static Analysis') {
       steps {
-        sh ''' mvn clean verify sonar:sonar \\
-  -Dsonar.projectKey=simple-java-maven-app \\
-  -Dsonar.projectName=\'simple java maven app\' \\
-  -Dsonar.host.url=http://43.204.195.107:9000 \\
-  
+        sh '''mvn clean verify sonar:sonar \\
 
 
 
 
 
 
-'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-Dsonar.projectKey=simple-java-maven-app \\     
+
+
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-Dsonar.projectName=\'simple java maven app\' \\    -Dsonar.host.url=http://43.204.195.107:9000 \\ -Dsonar.token=sqp_860138ea8e8a671a05711a67c18c2963f59686b1'''
       }
     }
 
